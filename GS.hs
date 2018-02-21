@@ -101,8 +101,8 @@ srt xs = m : srt (removeFst m xs)
   where m = mnm xs
 
 prefix :: String -> String -> Bool
-prefix [] ys = True
-prefix (x:xs) [] = False
+prefix [] _ = True
+prefix (_:_) [] = False
 prefix (x:xs) (y:ys) = (x==y) && prefix xs ys
 
 -- Exercise 1.17
@@ -154,8 +154,6 @@ prime n | n < 1     = error "not a positive integer"
         | n == 1    = False
         | otherwise = ldp n == n
 
-a = 3
-b = 4
 f :: Integer -> Integer -> Integer
 f x y = x^2 + y^2
 
